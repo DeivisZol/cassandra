@@ -30,11 +30,11 @@ public class CassandraConnector {
         connector.createTableRoomTable(hotelSession);
         connector.createTableReservationTable(hotelSession);
         UUID hotel1Id = random();
-        connector.insertIntoHotel(new Hotel(hotel1Id, "'Pas-Kamile'", "'+37066635666'", "'Kaimo g, 24'"), hotelSession);
+        connector.insertIntoHotel(new Hotel(hotel1Id, "'Pas-Mineda'", "'+37066635666'", "'Kaimo g, 24'"), hotelSession);
         UUID room1Id = random();
         UUID room2Id = random();
         UUID room3Id = random();
-        connector.insertIntoRoom(new Room(room1Id, hotel1Id, 101, 2, BigDecimal.valueOf(50d)), hotelSession);
+        connector.insertIntoRoom(new Room(room1Id, hotel1Id, 101, 4, BigDecimal.valueOf(120d)), hotelSession);
         connector.insertIntoRoom(new Room(room2Id, hotel1Id, 102, 4, BigDecimal.valueOf(120d)), hotelSession);
         connector.insertIntoRoom(new Room(room3Id, hotel1Id, 103, 2, BigDecimal.valueOf(90d)), hotelSession);
         connector.insertIntoReservation(new Reservation(random(), room1Id, LocalDate.now(), LocalDate.now()), hotelSession);
@@ -42,7 +42,7 @@ public class CassandraConnector {
 //        connector.printHotels(connector.selectAllHotels(hotelSession));
 //        connector.printRooms(connector.selectAllRooms(hotelSession));
 //        connector.printReservations(connector.selectAllReservations(hotelSession));
-        connector.printRooms(connector.getRoomsByHotelIdAndRoomNb(hotelSession, hotel1Id, 2, BigDecimal.valueOf(150d)));
+        connector.printRooms(connector.getRoomsByHotelIdAndRoomNb(hotelSession, hotel1Id, 4, BigDecimal.valueOf(150d)));
 
     }
 
